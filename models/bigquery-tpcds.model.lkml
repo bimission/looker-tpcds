@@ -11,6 +11,10 @@ datagroup: bigquery_tpcds_default_datagroup {
 persist_with: bigquery_tpcds_default_datagroup
 
 explore: store_sales {
+  access_filter: {
+    field: item.i_brand
+    user_attribute: brand_name
+  }
   join: store {
     type:  inner
     relationship: many_to_one
