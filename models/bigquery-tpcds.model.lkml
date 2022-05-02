@@ -10,52 +10,71 @@ datagroup: bigquery_tpcds_default_datagroup {
 
 persist_with: bigquery_tpcds_default_datagroup
 
-explore: call_center {}
+explore: store_sales {
+  join: store {
+    type:  inner
+    relationship: many_to_one
+    sql_on: ${store_sales.ss_store_sk} = ${store.s_store_sk} ;;
+  }
+  join: customer {
+    type:  inner
+    relationship:  many_to_one
+    sql_on:  ${store_sales.ss_customer_sk} = ${customer.c_customer_sk} ;;
+  }
+  join: item {
+    type:  inner
+    relationship: many_to_one
+    sql_on:  ${store_sales.ss_item_sk} = ${item.i_item_sk} ;;
+  }
+}
 
-explore: customer_address {}
 
-explore: customer {}
+#explore: call_center {}
 
-explore: catalog_returns {}
+#explore: customer_address {}
+
+#explore: customer {}
+
+#explore: catalog_returns {}
 
 #explore: date_dim {}
 
-explore: catalog_sales {}
+#explore: catalog_sales {}
 
-explore: customer_demographics {}
+#explore: customer_demographics {}
 
-explore: catalog_page {}
+#explore: catalog_page {}
 
-explore: dbgen_version {}
+#explore: dbgen_version {}
 
-explore: household_demographics {}
+#explore: household_demographics {}
 
-explore: income_band {}
+#explore: income_band {}
 
-explore: inventory {}
+#explore: inventory {}
 
-explore: promotion {}
+#explore: promotion {}
 
-explore: reason {}
+#explore: reason {}
 
-explore: ship_mode {}
+#explore: ship_mode {}
 
-explore: item {}
+#explore: item {}
 
-explore: store_sales {}
+#explore: store_sales {}
 
-explore: store_returns {}
+#explore: store_returns {}
 
-explore: time_dim {}
+#explore: time_dim {}
 
-explore: store {}
+#explore: store {}
 
-explore: warehouse {}
+#explore: warehouse {}
 
-explore: web_page {}
+#explore: web_page {}
 
-explore: web_returns {}
+#explore: web_returns {}
 
-explore: web_sales {}
+#explore: web_sales {}
 
-explore: web_site {}
+#explore: web_site {}
