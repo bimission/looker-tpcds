@@ -122,4 +122,16 @@ view: store_sales {
     type: count
     drill_fields: []
   }
+
+  measure: net_profit_25th_percentile {
+    type:  percentile
+    percentile: 25
+    sql:  ${TABLE}.ss_net_profit ;;
+  }
+
+  measure: net_profit_75th_percentile {
+    type:  percentile
+    percentile:  75
+    sql:  ${TABLE}.ss_net_profit ;;
+  }
 }
