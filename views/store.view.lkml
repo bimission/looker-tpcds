@@ -132,7 +132,26 @@ view: store {
   dimension: s_store_name {
     type: string
     sql: ${TABLE}.s_store_name ;;
-  }
+    action: {
+      label: "Label to Appear in Action Menu"
+      url: "https://example.com/posts"
+      icon_url: "https://looker.com/favicon.ico"
+      form_url: "https://example.com/ping/{{ value }}/form.json"
+      param: {
+        name: "pstring"
+        value: "value string"
+      }
+      form_param: {
+        name: "pstring"
+        type:  textarea
+        label: "possibly-localized-string"
+        required: yes
+        description: "possibly-localized-string"
+        default: "string"
+        }
+      }
+    }
+
 
   dimension: s_store_sk {
     type: number
